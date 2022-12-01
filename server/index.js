@@ -1,4 +1,16 @@
 const { MongoClient } = require("mongodb");
+var express = require("express");
+var app = express();
+var port = 3000;
+ 
+app.get("/", (req, res) => {
+    res.send("Hello World");
+});
+ 
+app.listen(port, () => {
+  console.log("Server listening on port " + port);
+});
+
 // Replace the uri string with your connection string.
 // you might want to follow https://www.mongodb.com/docs/drivers/node/current/quick-start/
 // to set up your own database or let me (Karine) know we can figure it out together
