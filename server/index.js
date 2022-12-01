@@ -1,33 +1,47 @@
 const { MongoClient } = require("mongodb");
 var express = require("express");
+var bodyParser = require('body-parser');
+var multer = require('multer');
 var app = express();
 var port = 3000;
- 
-app.get("/", (req, res) => {
-    res.send("Hello World");
-});
- 
-app.listen(port, () => {
-  console.log("Server listening on port " + port);
-});
+// for parsing application/json
+app.use(bodyParser.json()); 
+
+// for parsing application/xwww-
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 // Replace the uri string with your connection string.
 // you might want to follow https://www.mongodb.com/docs/drivers/node/current/quick-start/
 // to set up your own database or let me (Karine) know we can figure it out together
 const uri =
   "mongodb+srv://nosqldefenseteam:websecurityfall22@cluster0.d5ckhrl.mongodb.net/?retryWrites=true&w=majority";
-const client = new MongoClient(uri);
-async function run() {
-  try {
-    const database = client.db('sample_mflix');
-    const movies = database.collection('movies');
-    // Query for a movie that has the title 'Back to the Future'
-    const query = { title: 'Back to the Future' };
-    const movie = await movies.findOne(query);
-    console.log(movie);
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
+
+async function writeToDatabase(user_input) {
+    const client = new MongoClient(uri);
+    try {
+      const database = client.db('testing');
+      const testData = database.collection('test_data');
+      // Query for a movie that has the title 'Back to the Future'
+      const query = { data: user_input };
+      const result = await testData.insertOne(query);
+      console.log(result);
+    } finally {
+      // Ensures that the client will close when you finish/error
+      await client.close();
+    }
   }
-}
-run().catch(console.dir);
+  writeToDatabase().catch(console.dir);
+ 
+app.get("/", (req, res) => {
+    res.sendFile(__dirname + "/index.html");
+});
+
+app.post("/adddata", (req, res) => {
+    console.log(req.body);
+    writeToDatabase(req.body);
+    res.send("recieved");
+});
+ 
+app.listen(port, () => {
+  console.log("Server listening on port " + port);
+});
