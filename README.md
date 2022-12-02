@@ -1,12 +1,12 @@
 # nosql-injection-defense
 
 
-How to set up your own MongoDB (3 ways):
+## How to set up your own MongoDB (3 ways):
 1. I've sent out invitations to your jhu emails, so you should have access to the cloud MongoDB database. Lmk if you have not received it or are having issues using it.
 2. Follow https://www.mongodb.com/docs/drivers/node/current/quick-start/ to create your own cloud database and change const uri (line 16 in index.js) to your connection string
 3. Set up mongodb locally and modify index.js accordingly
 
-# How to Run (might need to set up your own MongoDB first):
+## How to Run (might need to set up your own MongoDB first):
 In terminal, go into the server folder
 
 Make sure you have installed dependencies:
