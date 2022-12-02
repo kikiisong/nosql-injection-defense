@@ -13,6 +13,7 @@ Make sure you have installed dependencies:
 1. npm install mongodb@4.12
 2. npm install express --save
 3. npm install --save body-parser multer
+
 Then do node index.js and go to http://localhost:3000/
 
 URLs:
@@ -23,7 +24,13 @@ URLs:
 3. http://localhost:3000/login
 - Login page
 - Note that the inputs get converted to string so the injection does not work well here.
-- However, we can use REST APIs (I use Postman https://www.postman.com/) to send JSON directly to make the injection work.
+- However, we can use REST APIs (I use Postman https://www.postman.com/) to send JSON directly to make the injection work. E.g.
+```
+{
+    "username": "aa",
+    "password": { "$ne": null }
+}
+```
 
 
 
