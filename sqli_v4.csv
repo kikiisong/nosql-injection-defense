@@ -632,7 +632,6 @@ select * from users where id  =  '1' or \<$ or 1  =  1 -- 1'::::1
  or username like char  (  37  )  ::::1
 " select * from users where id  =  1 or 1#""$ union select version  (    )  ,version  (    )   -- 1::::1"
 or 'something'   =   'some'+'thing'::::1
-#NAME?
 or 1 in   (  select @@version  )  --::::1
 declare @q nvarchar   (  4000  )   select @q   = ::::1
 " select * from users where id  =  1.&&@ union select 1,version  (    )   -- 1::::1"
@@ -13286,7 +13285,6 @@ castellgal::::0
 muopedro::::0
 e0u08os1::::0
 25938703q::::0
-#NAME?
 38449362d::::0
 apotrerar::::0
 graff@manzanilladevillafafila.iq::::0
@@ -13500,7 +13498,6 @@ nieva de cameros::::0
 polop::::0
 cadenat.mulich@4ghz.do::::0
 capella gorrn::::0
-#NAME?
 humanitari9mo::::0
 "plza. mariano arregui canela 171,::::0"
 "prat de llobregat, el::::0"
@@ -15603,7 +15600,6 @@ taghizad::::0
 trilles aedo::::0
 dierkes.casado5@firstchoicecoffee.ms::::0
 alfama::::0
-#NAME?
 37210::::0
 general castaos 180 9-e::::0
 gracomda7::::0
@@ -17881,7 +17877,6 @@ hollywood.hausman@921.th::::0
 tottenham@satellites.py::::0
 43120::::0
 "paseo mokamer, s/n,::::0"
-#NAME?
 hermida fiordalizzi::::0
 robieux::::0
 tromba::::0
@@ -18201,7 +18196,6 @@ mola guell::::0
 lilien@aprendeaestudiar.lt::::0
 clarucha::::0
 forslund::::0
-#NAME?
 frankos::::0
 suplementero::::0
 olaf::::0
@@ -18843,7 +18837,6 @@ tice::::0
 oate fijo::::0
 66339533n::::0
 antonio ulloa 6 6?d::::0
-#NAME?
 ivon::::0
 deighton_pfaudler@ajuntamentdebarcelona20.vn::::0
 murgua aversa::::0
@@ -31038,4 +31031,3 @@ db.users.find({Username: { $regex: /^a/ }password: { $regex: /.*/ }})::::1
 "db.doc.find({ username: ‘tolkien’, $or: [ {}, { ‘a’: ‘a’, password: ‘’ } ]})//’})::::1"
 "db.collection.find( { user: ‘harris’, $or : [ { a : 1 } , { b : /.*/ } ] } )//’::::1"
 "db.collection.find( { user: ‘tomas’, $or : [ { a : 1 } , { b : {$regex: /.*/ }} ] } )//’::::1"
-"db.admins.find({user:  ‘rafid’, $or:[{},{a: ‘a’,$and: [passcode: ‘’,validation_key: ‘’]}//’ ]})::::1"
