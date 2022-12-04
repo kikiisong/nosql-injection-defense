@@ -101,10 +101,32 @@ async function checkLogin(user_input) {
     const database = client.db('testing');
     const testData = database.collection('users');
     
-    const classfied = nb.classify(JSON.stringify(user_input));
-    if(parseInt(classfied)) 
+    let classfied_username = 0;
+    if(typeof user_input.username === "string")
     {
-      console.log(user_input);
+      console.log(user_input.username);
+      classfied_username = nb.classify(user_input.username);
+    }else
+    {
+      console.log(JSON.stringify(user_input.username));
+      classfied_username = nb.classify(JSON.stringify(user_input.username));
+    }
+
+    let classfied_password = 0;
+    if(typeof user_input.password === "string")
+    {
+      console.log(user_input.password);
+      classfied_password = nb.classify(user_input.password);
+    }else
+    {
+      console.log(JSON.stringify(user_input.password));
+      classfied_password = nb.classify(JSON.stringify(user_input.password));
+    }
+    
+
+    if(parseInt(classfied_username) || parseInt (classfied_password)) 
+    {
+      //console.log(JSON.stringify(user_input));
       console.log("malicious");
       return false;
     }
